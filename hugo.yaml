@@ -45,9 +45,10 @@ menu:
       pageRef: /sobre
       weight: 1
     - name: Pesquisa
+      pageRef: /pesquisa
       weight: 2
       params:
-        type: search
+        icon: search
     - name: RSS
       weight: 3
       url: /index.xml

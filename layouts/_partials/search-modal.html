@@ -1,0 +1,105 @@
+{{- $placeholder := (T "searchPlaceholder") | default "Pesquisar…" -}}
+
+<div id="search-modal" hidden role="dialog" aria-modal="true" aria-label="{{ $placeholder }}">
+  <div id="search-modal-backdrop"></div>
+  <div id="search-modal-box">
+    <div class="hextra-search-wrapper" id="search-modal-wrapper">
+      <div id="search-modal-input-row">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="search-modal-icon">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input
+          type="search"
+          class="hextra-search-input"
+          id="search-modal-input"
+          placeholder="{{ $placeholder }}"
+          aria-label="{{ $placeholder }}"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button type="button" id="search-modal-esc" aria-label="Fechar busca">ESC</button>
+      </div>
+      <ul
+        class="hextra-search-results hextra-scrollbar hx:hidden"
+        aria-label="{{ (T "searchResults") | default "Resultados" }}"
+        style="transition: max-height 0.2s ease 0s;"
+      ></ul>
+      <div class="hextra-search-status hx:sr-only" aria-live="polite" role="status"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const modal    = document.getElementById('search-modal');
+  const backdrop = document.getElementById('search-modal-backdrop');
+  const input    = document.getElementById('search-modal-input');
+  const escBtn   = document.getElementById('search-modal-esc');
+  const triggers = document.querySelectorAll('.search-modal-trigger');
+
+  function openModal() {
+    // Esconde outros hextra-search-wrapper para o FlexSearch detectar apenas o do modal
+    document.querySelectorAll('.hextra-search-wrapper').forEach(function (w) {
+      if (!modal.contains(w)) {
+        w.dataset.smHidden = '1';
+        w.style.display = 'none';
+      }
+    });
+
+    modal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(function () { input.focus(); });
+  }
+
+  function closeModal() {
+    modal.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+
+    // Limpa o input e esconde resultados
+    input.value = '';
+    input.dispatchEvent(new Event('input'));
+    var results = modal.querySelector('.hextra-search-results');
+    if (results) results.classList.add('hx:hidden');
+
+    // Restaura outros search wrappers
+    document.querySelectorAll('[data-sm-hidden]').forEach(function (w) {
+      delete w.dataset.smHidden;
+      w.style.display = '';
+    });
+  }
+
+  triggers.forEach(function (t) { t.addEventListener('click', openModal); });
+  escBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  // Fecha ao clicar em um resultado
+  modal.addEventListener('click', function (e) {
+    if (e.target.closest('.hextra-search-results a')) {
+      closeModal();
+    }
+  });
+
+  // Ctrl+K / ⌘K — captura antes do FlexSearch
+  document.addEventListener('keydown', function (e) {
+    var isKShortcut = e.key === 'k' && (e.metaKey || e.ctrlKey);
+    var isSlash     = e.key === '/';
+
+    if (isKShortcut || isSlash) {
+      // Não abre se já digitando em outro input
+      var tag = document.activeElement && document.activeElement.tagName;
+      if (!modal.hasAttribute('hidden')) return; // já aberto — FlexSearch cuida
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      openModal();
+      return;
+    }
+
+    if (e.key === 'Escape' && !modal.hasAttribute('hidden')) {
+      e.preventDefault();
+      closeModal();
+    }
+  }, true); // capture — dispara antes de qualquer listener bubble
+})();
+</script>

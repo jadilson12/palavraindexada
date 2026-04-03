@@ -1,0 +1,269 @@
+/* ─── Keyboard focus ─────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+  transition: outline-offset 0.1s ease-out;
+}
+
+/* ─── Navbar: layout 3 colunas (título | busca centralizada | links) ─────── */
+.navbar-search-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .navbar-search-center {
+    display: none;
+  }
+}
+
+/* ─── Botão trigger de busca no header ───────────────────────────────────── */
+.search-modal-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  min-width: 400px;
+  font-size: 14px;
+  color: rgba(100, 100, 100, 0.85);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(112, 112, 112, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+  white-space: nowrap;
+  outline: none;
+}
+
+.search-modal-trigger:hover {
+  background: rgba(0, 0, 0, 0.07);
+  border-color: rgba(112, 112, 112, 0.35);
+}
+
+.dark .search-modal-trigger {
+  color: rgba(200, 200, 200, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(206, 206, 206, 0.15);
+}
+
+.dark .search-modal-trigger:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(206, 206, 206, 0.3);
+}
+
+.search-modal-trigger kbd {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-family: ui-monospace, monospace;
+  border: 1px solid rgba(112, 112, 112, 0.25);
+  border-radius: 4px;
+  padding: 1px 5px;
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.6);
+  color: rgba(100, 100, 100, 0.8);
+}
+
+.dark .search-modal-trigger kbd {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(206, 206, 206, 0.2);
+  color: rgba(200, 200, 200, 0.6);
+}
+
+/* ─── Modal overlay ──────────────────────────────────────────────────────── */
+#search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 80px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+#search-modal[hidden] {
+  display: none !important;
+}
+
+#search-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* ─── Modal box ──────────────────────────────────────────────────────────── */
+#search-modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  background: #ffffff;
+  animation: search-modal-in 0.18s ease;
+}
+
+.dark #search-modal-box {
+  background: #1c1c1e;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes search-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── Input row ──────────────────────────────────────────────────────────── */
+#search-modal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.12);
+}
+
+.dark #search-modal-input-row {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+#search-modal-icon {
+  flex-shrink: 0;
+  color: rgba(130, 130, 130, 0.8);
+}
+
+#search-modal-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: normal;
+  color: inherit;
+}
+
+#search-modal-input::placeholder {
+  color: rgba(130, 130, 130, 0.6);
+}
+
+#search-modal-esc {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-family: ui-monospace, monospace;
+  color: rgba(130, 130, 130, 0.8);
+  background: none;
+  border: 1px solid rgba(112, 112, 112, 0.25);
+  border-radius: 5px;
+  padding: 2px 7px;
+  cursor: pointer;
+  line-height: 1.6;
+  transition: border-color 0.15s ease;
+}
+
+#search-modal-esc:hover {
+  border-color: rgba(112, 112, 112, 0.5);
+}
+
+.dark #search-modal-esc {
+  border-color: rgba(206, 206, 206, 0.2);
+  color: rgba(200, 200, 200, 0.6);
+}
+
+/* ─── Resultados dentro do modal ─────────────────────────────────────────── */
+#search-modal-wrapper .hextra-search-results {
+  position: static !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: unset !important;
+  min-height: 60px;
+  max-height: 420px;
+  border: none !important;
+  border-radius: 0 0 14px 14px !important;
+  box-shadow: none !important;
+  margin-top: 0 !important;
+  background: transparent !important;
+  color: inherit !important;
+}
+
+#search-modal-wrapper .hextra-search-results li {
+  margin: 0 6px;
+}
+
+/* ─── Mobile nav: separador e acordeão de anos ───────────────────────────── */
+.mobile-nav-separator {
+  height: 1px;
+  background: rgba(112, 112, 112, 0.15);
+  margin: 6px 8px;
+}
+
+.dark .mobile-nav-separator {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mobile-nav-year details > summary {
+  list-style: none;
+}
+
+.mobile-nav-year details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-nav-year .mobile-nav-chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  color: rgba(130, 130, 130, 0.7);
+}
+
+.mobile-nav-year details[open] .mobile-nav-chevron {
+  transform: rotate(90deg);
+}
+
+/* ─── Search page (assets/css/custom.css) ────────────────────────────────── */
+#searchbox input {
+  height: 36px;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: normal;
+  background: transparent;
+  border: 1px solid rgba(112, 112, 112, 0.3);
+  border-radius: 12px;
+  transition: border-color 0.15s ease;
+  width: 100%;
+  display: block;
+  color: inherit;
+}
+
+#searchbox input::placeholder {
+  color: rgba(112, 112, 112, 0.6);
+}
+
+#searchbox input:focus,
+#searchbox input:focus-visible {
+  outline: none;
+  border-color: rgba(112, 112, 112, 0.5);
+  border-radius: 12px;
+}
+
+.dark #searchbox input {
+  background: transparent;
+  border-color: rgba(206, 206, 206, 0.2);
+}
+
+.dark #searchbox input:focus,
+.dark #searchbox input:focus-visible {
+  border-color: rgba(206, 206, 206, 0.4);
+}

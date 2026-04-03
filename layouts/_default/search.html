@@ -1,0 +1,35 @@
+{{- /*
+  Página de busca dedicada — usa o índice FlexSearch do Hextra.
+*/ -}}
+{{- define "main" }}
+<div class="hextra-search-page hx:mx-auto hx:px-4 hx:py-12 hx:max-w-2xl">
+  <header class="hx:mb-8 hx:text-center">
+    <h1 class="hx:text-2xl hx:font-bold hx:text-gray-900 hx:dark:text-gray-100">{{ .Title }}</h1>
+    {{- if .Description }}
+    <p class="hx:mt-2 hx:text-gray-500 hx:dark:text-gray-400">{{ .Description }}</p>
+    {{- end }}
+  </header>
+
+  <div id="searchbox" class="hextra-search-wrapper hx:relative">
+    <input
+      autofocus
+      placeholder="{{ .Params.placeholder | default (printf "Pesquisar em %s…" .Site.Title) }}"
+      aria-label="{{ .Title }}"
+      class="hextra-search-input"
+      id="searchInput"
+      type="search"
+      autocomplete="off"
+      maxlength="64"
+      spellcheck="false"
+    />
+
+    <ul
+      class="hextra-search-results hextra-scrollbar hx:hidden hx:mt-2 hx:border hx:border-gray-200 hx:bg-white hx:dark:border-neutral-800 hx:dark:bg-neutral-900 hx:rounded-xl hx:py-2.5 hx:shadow-xl hx:overflow-auto hx:overscroll-contain hx:max-h-[calc(100vh-16rem)]"
+      id="searchResults"
+      aria-label="{{ (T "searchResults") | default "Resultados" }}"
+      style="transition: max-height 0.2s ease 0s;"
+    ></ul>
+    <div class="hextra-search-status hx:sr-only" aria-live="polite" role="status"></div>
+  </div>
+</div>
+{{- end }}
