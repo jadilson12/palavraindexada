@@ -5,7 +5,7 @@ next: first-page
 
 This is a demo of the theme's documentation layout.
 
-## Hello, World!
+## Hello, World
 
 ```go {filename="main.go"}
 package main

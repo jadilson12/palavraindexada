@@ -1,5 +1,24 @@
 # Hugo configuration file
-title: My Site
+
+segments:
+  recent:
+    includes:
+      - kind: "{home,section,taxonomy,term}"
+      - path: "{/2025/**,/2026/**,/2027/**,/about,/archives}"
+
+title: Palavra Indexada
+enableEmoji: true
+languageCode: pt-BR
+defaultContentLanguage: pt-br
+baseURL: "https://palavraindexada.netlify.app/"
+
+languages:
+  pt-br:
+    languageName: "Portugues"
+    weight: 1
+
+outputs:
+  home: [HTML, RSS]
 
 # import hextra as module
 module:
@@ -18,39 +37,46 @@ markup:
 
 menu:
   main:
-    - name: Docs
-      pageRef: /docs
+    - name: Theme
+      weight: 0
+      params:
+        type: theme-toggle
+    - name: Sobre
+      pageRef: /sobre
       weight: 1
-    - name: About
-      pageRef: /about
+    - name: Pesquisa
       weight: 2
-    - name: Contact ↗
-      url: "https://github.com/imfing"
-      weight: 3
-    - name: Search
-      weight: 4
       params:
         type: search
-    - name: GitHub
-      weight: 5
-      url: "https://github.com/imfing/hextra-starter-template"
+    - name: RSS
+      weight: 3
+      url: /index.xml
       params:
-        icon: github
-    - name: Twitter
-      weight: 6
-      url: "https://twitter.com/"
-      params:
-        icon: x-twitter
+        icon: rss
 
 params:
+  theme:
+    default: "light"
+    displayToggle: true
+
   navbar:
     displayTitle: true
     displayLogo: false
 
   footer:
-    displayCopyright: false
+    displayCopyright: true
     displayPoweredBy: true
 
   editURL:
-    enable: true
-    base: "https://github.com/imfing/hextra-starter-template/edit/main/content"
+    enable: false
+
+  youtubeDefaults:
+    iframeAllowList: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy: "no-referrer"
+    iframeStyle: "border:0; width:100%; aspect-ratio:16/9;"
+
+  author:
+    name: Jadilson Guedes
+    email: jadilson12@gmail.com
+
+  description: "Blog do Jadilson Guedes sobre estudo, organização e compartilhamento do conhecimento bíblico e teológico."

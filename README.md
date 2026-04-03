@@ -1,14 +1,15 @@
 # Palavra Indexada
 
-[![Deploy Hugo site to Pages](https://github.com/jadilson12/palavraIndexada/actions/workflows/pages.yaml/badge.svg)](https://github.com/jadilson12/palavraIndexada/actions/workflows/pages.yaml)
+[![Deploy Hugo site to Pages](https://github.com/jadilson12/palavraindexada/actions/workflows/pages.yaml/badge.svg)](https://github.com/jadilson12/palavraindexada/actions/workflows/pages.yaml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6e83fd88-5ffe-4808-9689-c0f3b100bfe3/deploy-status)](https://app.netlify.com/sites/hextra-starter-template/deploys)
-![Vercel Deployment Status](https://img.shields.io/github/deployments/jadilson12/palavraIndexada/production?logo=vercel&logoColor=white&label=vercel&labelColor=black&link=https%3A%2F%2FpalavraIndexada.vercel.app%2F)
+![Vercel Deployment Status](https://img.shields.io/github/deployments/jadilson12/palavraindexada/production?logo=vercel&logoColor=white&label=vercel&labelColor=black&link=https%3A%2F%2Fpalavraindexada.vercel.app%2F)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 🐣 Projeto com artigos, ministrações, seminários e conhecimento da Palavra de Deus, otimizado para indexação, uso de IA, AIO e SEO. Construído com [Hextra](https://github.com/imfing/hextra)
 
-![hextra-template](https://github.com/jadilson12/palavraIndexada/assets/5097752/c403b9a9-a76c-47a6-8466-513d772ef0b7)
+![hextra-template](https://github.com/jadilson12/palavraindexada/assets/5097752/c403b9a9-a76c-47a6-8466-513d772ef0b7)
 
-[🌐 Demo ↗](https://jadilson12.github.io/palavraIndexada/)
+[🌐 Demo ↗](https://jadilson12.github.io/palavraindexada/)
 
 ## Quick Start
 
@@ -20,7 +21,7 @@ You can also quickly start developing using the following online development env
 
 - [GitHub Codespaces](https://github.com/codespaces)
 
-  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jadilson12/palavraIndexada)
+  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/jadilson12/palavraindexada)
 
   Create a new codespace and follow the [Local Development](#local-development) to launch the preview
 
@@ -34,17 +35,17 @@ For details, see [Publishing with a custom GitHub Actions workflow](https://docs
 
 Note: in the settings, make sure to set the Pages deployment source to **GitHub Actions**:
 
-<img src="https://github.com/jadilson12/palavraIndexada/assets/5097752/99676430-884e-42ab-b901-f6534a0d6eee" width=600 />
+<img src="https://github.com/jadilson12/palavraindexada/assets/5097752/99676430-884e-42ab-b901-f6534a0d6eee" width=600 />
 
 [Run the workflow manually](https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow) if it's not triggered automatically.
 
 ### Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jadilson12/palavraIndexada)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/jadilson12/palavraindexada)
 
 ### Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjadilson12%2FpalavraIndexada&env=HUGO_VERSION)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjadilson12%2Fpalavraindexada&env=HUGO_VERSION)
 
 Override the configuration:
 
@@ -55,11 +56,11 @@ Override the configuration:
 Pre-requisites: [Hugo](https://gohugo.io/getting-started/installing/), [Go](https://golang.org/doc/install) and [Git](https://git-scm.com)
 
 ```shell
-# Clone the repo
-git clone https://github.com/imfing/hextra-starter-template.git
+# Clone the repo (se não estiver clonado)
+git clone https://github.com/jadilson12/palavraindexada.git
 
 # Change directory
-cd hextra-starter-template
+cd palavraindexada
 
 # Start the server
 hugo mod tidy
@@ -74,3 +75,9 @@ hugo mod tidy
 ```
 
 See [Update modules](https://gohugo.io/hugo-modules/use-modules/#update-modules) for more details.
+
+## License
+
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+[![CC BY-NC-SA 4.0](https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/4.0/)

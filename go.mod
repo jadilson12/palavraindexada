@@ -1,4 +1,4 @@
-module github.com/imfing/hextra-starter-template
+module github.com/jadilson12/palavraindexada
 
 go 1.26
 

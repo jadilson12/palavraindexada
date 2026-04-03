@@ -1,0 +1,16 @@
+{{- $id := trim ($.Get "id") " \n\r\t" }}
+{{- if not $id }}
+  {{ errorf "youtube shortcode: parâmetro 'id' é obrigatório" }}
+{{- end }}
+{{- $title := $.Get "title" | default "YouTube video player" }}
+
+<div class="embed-container">
+  <iframe
+    src="https://www.youtube.com/embed/{{ $id }}"
+    title="{{ $title }}"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen>
+  </iframe>
+</div>
