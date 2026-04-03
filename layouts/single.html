@@ -15,14 +15,123 @@
       </h1>
       {{ end }}
       <div
-        class="hx:text-center hx:mt-4 hx:text-sm hx:text-gray-500 hx:dark:text-gray-400"
+        class="hx:mt-4 hx:flex hx:flex-wrap hx:items-center hx:justify-center hx:gap-x-2 hx:gap-y-1.5 hx:text-sm hx:text-gray-500 hx:dark:text-gray-400"
       >
-        {{- with .Date -}}<em>{{ partial "utils/format-date" . }}</em>{{- end
-        -}}
+        {{- with .Date -}}
+        <time
+          class="hx:font-medium hx:not-italic hx:text-slate-600 hx:dark:text-slate-300"
+          datetime="{{ .Format "2006-01-02" }}"
+          >{{ partial "utils/format-date" . }}</time
+        >
+        {{- end -}}
+        {{- if .Params.channel -}}
+        {{- if .Date -}}
+        <span
+          class="hx:inline hx:text-slate-300 hx:select-none hx:dark:text-slate-600"
+          aria-hidden="true"
+          >·</span
+        >
+        {{- end -}}
+        <span
+          class="hx:max-w-full hx:truncate hx:text-slate-600 hx:dark:text-slate-300"
+          title="{{ .Params.channel }}"
+          >{{ .Params.channel }}</span
+        >
+        {{- end -}}
+        {{- if .Params.type -}}
+        {{- if or .Date .Params.channel -}}
+        <span
+          class="hx:inline hx:text-slate-300 hx:select-none hx:dark:text-slate-600"
+          aria-hidden="true"
+          >·</span
+        >
+        {{- end -}}
+        <span
+          class="hx:inline-flex hx:items-center hx:rounded-full hx:bg-primary-100 hx:px-2.5 hx:py-0.5 hx:text-xs hx:font-medium hx:text-primary-800 hx:dark:bg-primary-400/15 hx:dark:text-primary-300"
+          >{{ .Params.type }}</span
+        >
+        {{- end -}}
       </div>
       <div class="hx:mb-16"></div>
       <div class="content">{{ .Content }}</div>
       <div class="hx:mt-16"></div>
+
+      {{ if or .Params.topics .Params.summary .Params.keywords }}
+      <section
+        class="hx:group hx:relative hx:mb-10 hx:overflow-hidden hx:rounded-2xl hx:bg-gradient-to-br hx:from-white hx:via-slate-50/90 hx:to-slate-100/80 hx:shadow-lg hx:shadow-slate-200/40 hx:dark:from-slate-900 hx:dark:via-slate-900/95 hx:dark:to-slate-950 hx:dark:shadow-black/20"
+      >
+        <div
+          class="hx:absolute hx:inset-x-0 hx:top-0 hx:h-1 hx:bg-gradient-to-r hx:from-primary-500 hx:via-primary-400 hx:to-primary-600 hx:opacity-90"
+          aria-hidden="true"
+        ></div>
+        <div class="hx:space-y-3 hx:px-5 hx:py-5 hx:sm:px-6 hx:sm:py-6">
+          {{ if .Params.topics }}
+          <div
+            class="hx:rounded-xl hx:bg-white/60 hx:px-4 hx:py-3 hx:backdrop-blur-sm hx:dark:bg-slate-800/40"
+          >
+            <span
+              class="hx:mb-2 hx:block hx:text-[11px] hx:font-semibold hx:uppercase hx:tracking-wider hx:text-primary-600 hx:dark:text-primary-400"
+              >Tópicos</span
+            >
+            <div class="hx:mt-2 hx:flex hx:flex-wrap hx:gap-2">
+              {{ range .Params.topics }}
+              {{- $t := . -}}
+              {{- $q := $t -}}
+              {{- if strings.HasPrefix $t "#" -}}
+                {{- $q = strings.TrimPrefix "#" $t -}}
+              {{- end -}}
+              {{- $q = strings.TrimSpace $q -}}
+              <button
+                type="button"
+                class="hx:inline-flex hx:cursor-pointer hx:items-center hx:rounded-lg hx:bg-primary-50/80 hx:px-2.5 hx:py-1 hx:text-xs hx:font-medium hx:text-primary-900 hx:transition-colors hx:hover:bg-primary-100 hx:dark:bg-primary-400/10 hx:dark:text-primary-200 hx:dark:hover:bg-primary-400/20 hx:hextra-focus-visible-inset"
+                data-search-topic="{{ $q | htmlEscape }}"
+                aria-label="Pesquisar: {{ $q | htmlEscape }}"
+              >
+                {{ $q }}
+              </button>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }} {{ if .Params.summary }}
+          <div
+            class="hx:rounded-xl hx:bg-white/60 hx:px-4 hx:py-3 hx:backdrop-blur-sm hx:dark:bg-slate-800/40"
+          >
+            <span
+              class="hx:mb-2 hx:block hx:text-[11px] hx:font-semibold hx:uppercase hx:tracking-wider hx:text-primary-600 hx:dark:text-primary-400"
+              >Resumo</span
+            >
+            <p
+              class="hx:text-sm hx:leading-relaxed hx:text-slate-700 hx:italic hx:dark:text-slate-200"
+            >
+              {{ .Params.summary }}
+            </p>
+          </div>
+          {{ end }} {{ if .Params.keywords }}
+          <div
+            class="hx:rounded-xl hx:bg-white/60 hx:px-4 hx:py-3 hx:backdrop-blur-sm hx:dark:bg-slate-800/40"
+          >
+            <span
+              class="hx:mb-2 hx:block hx:text-[11px] hx:font-semibold hx:uppercase hx:tracking-wider hx:text-primary-600 hx:dark:text-primary-400"
+              >Palavras-chave</span
+            >
+            <div class="hx:flex hx:flex-wrap hx:gap-2">
+              {{ range .Params.keywords }}
+              {{- $kw := strings.TrimSpace . -}}
+              <button
+                type="button"
+                class="hx:inline-flex hx:cursor-pointer hx:items-center hx:rounded-lg hx:bg-primary-50/80 hx:px-2.5 hx:py-1 hx:text-xs hx:font-medium hx:text-primary-900 hx:transition-colors hx:hover:bg-primary-100 hx:dark:bg-primary-400/10 hx:dark:text-primary-200 hx:dark:hover:bg-primary-400/20 hx:hextra-focus-visible-inset"
+                data-search-topic="{{ $kw | htmlEscape }}"
+                aria-label="Pesquisar: {{ $kw | htmlEscape }}"
+              >
+                {{ $kw }}
+              </button>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </section>
+      {{ end }}
     </main>
   </article>
 </div>

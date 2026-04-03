@@ -68,6 +68,39 @@
     });
   }
 
+  /** Abre o modal, preenche o termo e dispara a busca FlexSearch quando o índice estiver pronto. */
+  function openSearchWithQuery(rawQuery) {
+    var q = (rawQuery || '').trim();
+    if (!q) return;
+    openModal();
+    var attempts = 0;
+    function run() {
+      if (window.pageIndex && window.sectionIndex) {
+        input.value = q;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: 'a' }));
+        input.focus();
+        return;
+      }
+      attempts += 1;
+      if (attempts < 600) requestAnimationFrame(run);
+    }
+    requestAnimationFrame(run);
+  }
+
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-search-topic]');
+    if (!el) return;
+    e.preventDefault();
+    openSearchWithQuery(el.getAttribute('data-search-topic') || '');
+  });
+
+  document.addEventListener('hextra-open-search', function (ev) {
+    var q = ev.detail && ev.detail.query;
+    if (typeof q !== 'string') return;
+    openSearchWithQuery(q);
+  });
+
   triggers.forEach(function (t) { t.addEventListener('click', openModal); });
   escBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', closeModal);

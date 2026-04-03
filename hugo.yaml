@@ -44,13 +44,8 @@ menu:
     - name: Sobre
       pageRef: /sobre
       weight: 1
-    - name: Pesquisa
-      pageRef: /pesquisa
-      weight: 2
-      params:
-        icon: search
     - name: RSS
-      weight: 3
+      weight: 2
       url: /index.xml
       params:
         icon: rss
