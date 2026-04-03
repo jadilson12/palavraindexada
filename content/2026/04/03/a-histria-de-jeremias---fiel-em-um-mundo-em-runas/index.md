@@ -1,28 +1,25 @@
 ---
-title: "A História de Jeremias: Fidelidade e Transformação em um Mundo em Colapso"
-seo_title: "Jeremias: fidelidade num colapso"
-youtube_id: "aUZzfUhWkgE"
-channel: "JB Carvalho"
-presenter: "JB Carvalho"
-type: "Ministração"
-topics:
-  [
-    "Profecia e Juízo",
-    "Chamado Divino e Limitações Humanas",
-    "Resistência à Mentira",
-    "O Processo de Formação Divina",
-  ]
-summary: "O vídeo traça a vida do profeta Jeremias, um homem chamado por Deus para ministrar uma palavra de juízo em um Israel em colapso sob a ameaça babilônica. O pregador aborda como a verdade, embora dolorosa, é essencial para a cura, contrastando-a com o conforto sedativo das mentiras religiosas. Ele ensina que o chamado divino ignora as limitações humanas, exigindo que o indivíduo passe por processos de sofrimento e pressão (comparados a correr com cavalos) para ser fortalecido. A mensagem culmina na metáfora do Oleiro, mostrando que Deus não descarta o vaso quebrado, mas o refaz, provando que a fé genuína investe no futuro mesmo quando todas as evidências apontam para o colapso."
-keywords:
-  [
-    "Jeremias",
-    "Profecia",
-    "Fé sob Pressão",
-    "Juízo e Misericórdia",
-    "Processo Divino",
-  ]
+channel: JB Carvalho
 date: "2026-04-02"
-source: "YouTube"
+description: O vídeo traça a vida do profeta Jeremias, um homem chamado por Deus para ministrar uma palavra de juízo em um Israel em colapso sob a ameaça babilônica. O…
+keywords:
+    - Jeremias
+    - Profecia
+    - Fé sob Pressão
+    - Juízo e Misericórdia
+    - Processo Divino
+presenter: JB Carvalho
+seo_title: 'Jeremias: fidelidade num colapso'
+source: YouTube
+summary: O vídeo traça a vida do profeta Jeremias, um homem chamado por Deus para ministrar uma palavra de juízo em um Israel em colapso sob a ameaça babilônica. O pregador aborda como a verdade, embora dolorosa, é essencial para a cura, contrastando-a com o conforto sedativo das mentiras religiosas. Ele ensina que o chamado divino ignora as limitações humanas, exigindo que o indivíduo passe por processos de sofrimento e pressão (comparados a correr com cavalos) para ser fortalecido. A mensagem culmina na metáfora do Oleiro, mostrando que Deus não descarta o vaso quebrado, mas o refaz, provando que a fé genuína investe no futuro mesmo quando todas as evidências apontam para o colapso.
+title: 'A História de Jeremias: Fidelidade e Transformação em um Mundo em Colapso'
+topics:
+    - Profecia e Juízo
+    - Chamado Divino e Limitações Humanas
+    - Resistência à Mentira
+    - O Processo de Formação Divina
+type: Ministração
+youtube_id: aUZzfUhWkgE
 ---
 
 {{< youtube id="aUZzfUhWkgE" title="A História de Jeremias" >}}
