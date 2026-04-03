@@ -1,5 +1,6 @@
 ---
 title: Manifesto
+description: "Manifesto do Palavra Indexada: por que existe, o que acreditamos sobre estudo sério das Escrituras e como pretendemos organizar teologia e fé com rigor e clareza."
 type: page
 weight: 10
 ---

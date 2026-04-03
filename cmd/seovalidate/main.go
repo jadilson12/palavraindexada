@@ -1,5 +1,9 @@
-// Comando: analisa HTML estático (ex.: pasta public/ após `hugo`) e valida
-// SEO (metadados, OG, Twitter), AIO/AEO (Speakable, resumo citável) e GEO (schema.org, autoria, breadcrumbs).
+// seovalidate — apenas VERIFICA (read-only) o HTML já gerado.
+//
+// Responsabilidade: checagem de SEO, AEO (Speakable, texto citável), GEO (schema.org, autoria,
+// breadcrumbs) e sinais úteis a AIO (metadados coerentes). Não altera ficheiros.
+//
+// Fluxo recomendado:  go run scripts/seo-frontmatter.go -root content -write  →  hugo  →  go run ./cmd/seovalidate -dir public
 //
 // Uso: go run ./cmd/seovalidate -dir public
 package main

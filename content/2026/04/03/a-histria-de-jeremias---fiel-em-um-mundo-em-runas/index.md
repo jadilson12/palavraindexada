@@ -1,5 +1,7 @@
 ---
 title: "A História de Jeremias: Fidelidade e Transformação em um Mundo em Colapso"
+seo_title: "Jeremias: fidelidade num colapso"
+youtube_id: "aUZzfUhWkgE"
 channel: "JB Carvalho"
 presenter: "JB Carvalho"
 type: "Ministração"

@@ -76,3 +76,7 @@ params:
     email: jadilson12@gmail.com
 
   description: "Blog do Jadilson Guedes sobre estudo, organização e compartilhamento do conhecimento bíblico e teológico."
+
+  # Imagem padrão Open Graph / Twitter quando a página não define `images` nem `youtube_id`
+  images:
+    - /favicon.svg

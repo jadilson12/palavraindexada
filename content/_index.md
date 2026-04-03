@@ -1,5 +1,6 @@
 ---
 title: Palavra Indexada
+description: "Início do Palavra Indexada: estudo bíblico e teológico, organização por temas e acesso a artigos recentes, vídeos e arquivo completo do blog."
 ---
 
 ## 2026 - April

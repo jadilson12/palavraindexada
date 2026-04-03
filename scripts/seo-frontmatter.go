@@ -1,5 +1,11 @@
-// Atualiza front matter dos .md para alinhar com SEO, AIO/AEO e GEO do site
-// (seo_title, description, youtube_id). Por omissão só mostra o que mudaria (dry-run).
+// seo-frontmatter — APLICA alterações nos .md (entrada Hugo), não valida o site gerado.
+//
+// Responsabilidade: preencher/ajustar front matter alinhado a SEO, AEO, GEO e AIO
+// (description, seo_title, youtube_id) para o tema gerar metas/schema corretos. Por omissão é dry-run.
+//
+// A checagem do resultado está em cmd/seovalidate (sobre public/ após hugo), não neste script.
+//
+// Fluxo:  go run scripts/seo-frontmatter.go -root content -write  →  hugo  →  go run ./cmd/seovalidate -dir public
 //
 // Uso:
 //

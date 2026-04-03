@@ -1,5 +1,6 @@
 ---
 title: Sobre
+description: "Conheça o Palavra Indexada: missão de indexar conhecimento bíblico e teológico de forma clara e acessível, e o propósito de servir ao estudo das Escrituras."
 type: about
 ---
 
