@@ -1,0 +1,9 @@
+{{- $img := "" -}}
+{{- with .Params.images }}{{ $img = index . 0 | absURL }}{{ end -}}
+{{- if and (eq $img "") .Params.youtube_id }}{{ $img = printf "https://i.ytimg.com/vi/%s/maxresdefault.jpg" .Params.youtube_id }}{{ end -}}
+<meta name="twitter:card" content="{{ if $img }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ partial "utils/seo-og-title.html" . }}">
+<meta name="twitter:description" content="{{ partial "utils/page-description.html" . }}">
+{{- with $img -}}
+<meta name="twitter:image" content="{{ . }}">
+{{- end -}}

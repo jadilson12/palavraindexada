@@ -1,0 +1,9 @@
+{{- $desc := "" -}}
+{{- if .Description -}}
+  {{- $desc = .Description | plainify | htmlUnescape -}}
+{{- else if .IsHome -}}
+  {{- with .Site.Params.description }}{{ $desc = . | plainify | htmlUnescape }}{{ end -}}
+{{- else -}}
+  {{- $desc = .Summary | plainify | htmlUnescape | chomp -}}
+{{- end -}}
+{{- truncate 155 "…" $desc -}}

@@ -1,0 +1,13 @@
+{{- if .IsHome -}}
+  {{- .Site.Title -}}
+{{- else -}}
+  {{- $page := .Params.seo_title | default .Title -}}
+  {{- $suffix := printf " – %s" .Site.Title -}}
+  {{- $budget := sub 70 (countrunes $suffix) | int -}}
+  {{- if lt $budget 20 -}}{{- $budget = 20 -}}{{- end -}}
+  {{- if gt (countrunes $page) $budget -}}
+    {{- truncate $budget "…" $page -}}{{- $suffix -}}
+  {{- else -}}
+    {{- $page -}}{{- $suffix -}}
+  {{- end -}}
+{{- end -}}

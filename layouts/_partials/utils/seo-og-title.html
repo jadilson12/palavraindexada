@@ -1,0 +1,6 @@
+{{- $t := .Params.seo_title | default .Title -}}
+{{- if gt (countrunes $t) 65 -}}
+  {{- truncate 62 "…" $t -}}
+{{- else -}}
+  {{- $t -}}
+{{- end -}}
