@@ -11,6 +11,8 @@ description: "Palavra Indexada — estudo bíblico e teológico indexado: temas,
 
 O **Palavra Indexada** é um espaço dedicado ao estudo bíblico e à reflexão teológica, com textos organizados para facilitar a leitura, a consulta e o compartilhamento. Aqui você encontra artigos que acompanham ministrações e ensinos publicados em vídeo, sempre com referência à fonte original, para honrar os autores e permitir que você aprofunde o tema com segurança e clareza.
 
+Se você chegou por busca, pelo RSS ou por indicação de alguém da igreja ou do grupo de estudos, a proposta é a mesma: **ordenar o que já foi pregado e ensinado**, com linguagem clara, para que a Palavra de Deus seja mais fácil de revisitar, anotar e aplicar no cotidiano, sem substituir a comunhão local nem a orientação de pastores e mestres.
+
 ## Palavra Indexada — o que você encontra aqui
 
 Os conteúdos são pensados para quem deseja ir além da superfície: há resumos e notas estruturadas por **temas**, **palavras-chave** e, quando aplicável, referências a **livros bíblicos** e contexto histórico. A ideia é servir tanto ao leitor ocasional quanto a quem estuda com regularidade, oferecendo um ponto de partida sólido antes de mergulhar no vídeo completo ou nas obras recomendadas.
